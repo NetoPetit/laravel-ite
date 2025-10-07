@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Clientes;
 use Illuminate\Http\Request;
 
 class ClientesController extends Controller
 {
 
     public function index(){
-        return view('index');
+        $clientes = Clientes::all();
+
+        echo "Chegou no controller clientes";
+
+        return view('clientes.index', compact('clientes'));
     }
 
     public function recebeDados(Request $request){
